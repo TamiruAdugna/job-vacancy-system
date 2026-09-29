@@ -1,0 +1,26 @@
+# Config with secrets
+config.php
+*.env
+
+# Backups and archives
+*.zip
+*.rar
+*.7z
+*.bak
+*.old
+
+# Duplicate/backup PHP files
+post_job (2).php
+
+# User uploads / private docs
+Documents/
+uploads/
+
+# IDE / OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
