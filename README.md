@@ -37,7 +37,7 @@ Allows employers to post jobs and job seekers to apply for them.
 3. **Create the database**
    - Open phpMyAdmin (`http://localhost/phpmyadmin`)
    - Create a database named `job_vacancy_system`
-   - Import the SQL file from the `database/` folder
+   - Import the `schema.sql` file from the `database/` folder
 
 4. **Configure the app**
    - Copy `config.sample.php` to `config.php`
@@ -54,18 +54,37 @@ Allows employers to post jobs and job seekers to apply for them.
 
 ## 🔑 Test Accounts
 
-After registering, you can change a user's role in the `users` table to test both flows:
+Register a new account to test the app.
 
-| Role | How to create |
-|------|---------------|
-| Employer | Register normally, then in phpMyAdmin run: `UPDATE users SET role = 'employer' WHERE email = 'your-email';` |
-| Job Seeker | Register normally — this is the default role |
+**To test as an employer:**
+1. Register normally on `register.php`
+2. In phpMyAdmin, run:
+   ```sql
+   UPDATE users SET role = 'employer' WHERE email = 'your-test-email';
+   ```
+3. Log out and log back in.
 
-> ⚠️ Change test credentials after first login.
+**Default role for new registrations:** job seeker
 
 ## 📸 Screenshots
 
-_Coming soon._
+### Homepage
+![Homepage](screenshots/homepage.png)
+
+### Job Listings
+![Job Listings](screenshots/jobs.png)
+
+### Login
+![Login](screenshots/login.png)
+
+### Employer Dashboard
+![Employer Dashboard](screenshots/dashboard.png)
+
+### Job Seeker Dashboard
+![Job Seeker Dashboard](screenshots/jobseeker-dashboard.png)
+
+### Apply for a Job
+![Apply for a Job](screenshots/apply.png)
 
 ## 📁 Project Structure
 
@@ -73,6 +92,7 @@ _Coming soon._
 job-vacancy-system/
 ├── assets/                    # CSS, JS, images
 ├── database/                  # SQL schema
+├── screenshots/               # Project screenshots
 ├── .gitignore
 ├── config.sample.php          # Config template
 ├── index.php                  # Homepage

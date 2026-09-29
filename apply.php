@@ -673,11 +673,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p class="job-description">
 
                 <?php
-                echo nl2br(
-                    htmlspecialchars(
-                        $job["description"]
-                    )
-                );
+                $description = $job["description"];
+                $short = mb_strlen($description) > 400
+                    ? mb_substr($description, 0, 400) . "..."
+                    : $description;
+                echo nl2br(htmlspecialchars($short));
                 ?>
 
             </p>
